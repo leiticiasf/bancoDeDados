@@ -29,30 +29,31 @@ function Login(){
         const handleLogin = async () => {
             try {
                 const response = await logar(username, password);
-                alert(response);
                 
                 if(response == true){
                      navigate("/home")
+                     alert("Logado com sucesso!")
                 }
             } catch (error) {
                 console.error('Erro ao se logar:', error);
             }
         };
         return (
-            <div className='div'>
-                <h1>Login System</h1>
+            <div>
+                <h1>Login System</h1><br/>
+                <div className="info">
                 <form>
                     <label>
-                        Usuário: &nbsp;
+                        Usuário &nbsp;
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </label>
-                    &nbsp;&nbsp;
+                    <br/><br/>
                     <label>
-                        Senha: &nbsp;
+                        Senha &nbsp;&nbsp;&nbsp;
                         <input
                             type="password"
                             value={password}
@@ -61,12 +62,11 @@ function Login(){
                     </label>
                     <br />    <br/>
                     <button type="button" onClick={handleLogin}>
-                        Login  
+                        Entrar  
                     </button>    <br/> <br/>
                 </form>                 
-                <button onClick={handleClick}>
-                    Realizar Cadastro
-                </button>
+                <a href="/cadastro"> Não possui conta? Cadastre-se</a>
+            </div>
             </div>
     );
 }

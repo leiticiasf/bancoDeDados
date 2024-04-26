@@ -56,15 +56,15 @@ function Cadastro() {
   return (
     <div>
       <h1>Cadastro de Usuarios</h1>
-  
-      <form onSubmit={handleSubmit}>
+   <div className='info'>
+      <form onSubmit={handleSubmit}> 
         <input
           type="text"
           name="username"
           placeholder="username"
           value={novoUsuario.username}
           onChange={handleInputChange}
-        /> &nbsp;&nbsp;&nbsp;
+        />  &nbsp;&nbsp;&nbsp;
         <input
           type="text" 
           name="password"
@@ -72,14 +72,14 @@ function Cadastro() {
           value={novoUsuario.password}
           onChange={handleInputChange}
         /> <br/><br/>
-        <button type="submit">Adicionar Usuario</button>  
+        <button type="submit">Criar conta</button>  
       </form>  <br/>
   
       <button onClick={handleClick}>
   
         Voltar
       </button>
-     
+      </div>
     </div>
   );
 };
