@@ -21,6 +21,7 @@ function Cadastro() {
   }, []);
 
   const fetchUsuario = async () => {
+   
     try {
       const response = await axios.get('http://localhost:8090/api');
       setUsuario(response.data);
@@ -31,6 +32,7 @@ function Cadastro() {
   
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+   
     setNovoUsuario((prevUsuario) => ({
       ...prevUsuario,
       [name]: value,
@@ -38,15 +40,18 @@ function Cadastro() {
   };
 
   const handleSubmit = async (event) => {
+ 
     event.preventDefault();
     try {
       await axios.post('http://localhost:8090/api/cadastro', novoUsuario);
       fetchUsuario();
+ 
       setNovoUsuario({
         username: '',
         password: '',
        
       })
+      
       alert("Usuário cadastrado com sucesso!");
     } catch (error) {
       console.error('Erro ao criar Usuario:', error);
@@ -66,7 +71,7 @@ function Cadastro() {
           onChange={handleInputChange}
         />  &nbsp;&nbsp;&nbsp;
         <input
-          type="text" 
+          type="password" 
           name="password"
           placeholder="password"
           value={novoUsuario.password}

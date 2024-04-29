@@ -27,12 +27,19 @@ function Login(){
         const [username, setUsername] = useState('');
         const [password, setPassword] = useState('');
         const handleLogin = async () => {
+            if(username == "" && password == "") {
+                alert("Campos vazios!")
+            }
+            
             try {
                 const response = await logar(username, password);
                 
                 if(response == true){
                      navigate("/home")
                      alert("Logado com sucesso!")
+                }
+                else if(response == false){
+                    alert("Usuário não encontrado.")
                 }
             } catch (error) {
                 console.error('Erro ao se logar:', error);
